@@ -1,3 +1,3 @@
-class Pokemon
+class Pokemon < ActiveRecord::Base
 
 end
