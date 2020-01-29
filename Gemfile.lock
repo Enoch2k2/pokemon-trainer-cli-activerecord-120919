@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     pokemon_trainer (0.1.0)
-      activerecord
+      activerecord (~> 5.0)
       sqlite3
 
 GEM
@@ -102,4 +102,4 @@ DEPENDENCIES
   standalone_migrations
 
 BUNDLED WITH
-   2.0.1
+   2.1.4

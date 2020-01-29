@@ -41,5 +41,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "standalone_migrations"
   spec.add_dependency "sqlite3"
-  spec.add_dependency "activerecord"
+  spec.add_dependency "activerecord", "~> 5.0"
 end
