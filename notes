@@ -3,4 +3,13 @@ Wednesday 2020-01-29
 Goals:
 
 - establish a relationship between a trainer and pokemon... <<---
+
+  What does this relationship look like? ^^^
+  - A trainer has many pokemon.
+  - A pokemon belongs to a trainer.
+  - a `has_many`/`belongs_to` relationship... (FOR NOW)
+  - let's allow creation of a pokemon to include associating its trainer... and if the trainer doesn't already exist, create the trainer too!
+
+  - THEN... we will look at a more complex way to do this.... which may include a JOIN TABLE
+
 - (stretch) finish out any CRUD abilities between trainers & pokemon
