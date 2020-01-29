@@ -116,7 +116,20 @@ class Cli
     poke_type_2 = gets.strip
     puts "What is your pokemon description?"
     description = gets.strip
-    pokemon = Pokemon.new(name: name, poke_type_1: poke_type_1, poke_type_2: poke_type_2, description: description)
+    # This will assign the pokemon to the FIRST trainer whose name matches... .we know that's not great functionality so it needs to change down the road...
+    # If no match, create a new trainer.
+
+    puts "What is the trainer's name"
+    trainer_name = gets.strip
+    trainer = Trainer.find_or_create_by(name: trainer_name.capitalize)
+
+    pokemon = Pokemon.new(
+      name: name,
+      poke_type_1: poke_type_1,
+      poke_type_2: poke_type_2,
+      description: description,
+      trainer_id: trainer.id
+    )
     if pokemon.save
       puts "#{pokemon.name} has been created."
       puts ""
@@ -151,7 +164,7 @@ class Cli
     puts "### TRAINER DETAILS ###"
     puts "-----------------------"
     puts "Name: #{trainer.name}"
-    puts "Num. Of Pokemon: TODO"
+    puts "Num. Of Pokemon: #{trainer.pokemons.count}"
     puts ""
   end
 
@@ -164,6 +177,7 @@ class Cli
     puts "TYPE 1: #{pokemon.poke_type_1}"
     puts "TYPE 2: #{pokemon.poke_type_2}"
     puts "DESCRIPTION: #{pokemon.description}"
+    puts "TRAINER: #{pokemon.trainer.name}"
     puts ""
   end
 
