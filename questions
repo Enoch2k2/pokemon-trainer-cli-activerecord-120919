@@ -1,0 +1,22 @@
+1.  How did we even get ActiveRecord (or any gem) involved in our gem (or Ruby program)?
+
+- included in our Gemfile (or gemspec)
+- we ran `bundle install` to ensure it exists on our machine
+- we `require` it in our environment file
+
+2.  How do I actually build my database?  How do I inform ActiveRecord what tables to build and columns will be in those tables?
+
+- with migrations
+
+  2a.  What tool do we use to build our migrations?
+    - rake tasks, which will come from one of three sources:
+      1. standalone_migrations gem
+      2. sinatra/active_record/rake or something like
+      3. rails/ActiveRecord/rake
+ - migrations build the structure of the database
+ - once migrated, our schema shows us what the database structure currently is
+
+ 3.  How about the Ruby side of things?  How do we tell ActiveRecord what models we're using (how do we build the classes?)
+
+   - we build classes that inherit from ActiveRecord::Base
+   - ActiveRecord gives us getters and setters based on our schema (migrations)
